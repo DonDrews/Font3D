@@ -7,6 +7,14 @@ public class F3DVector3 {
 	float y;
 	float z;
 	
+	//public constructor
+	public F3DVector3(float x, float y, float z)
+	{
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
+	
 	//getting and setting functions
 	public void setX(float x)
 	{
