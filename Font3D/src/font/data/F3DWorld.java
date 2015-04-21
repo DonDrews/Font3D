@@ -6,9 +6,6 @@ import font.misc.F3DErrorManager;
 
 public class F3DWorld {
 	
-	//errors
-	public static final int REMOVE_MODEL_ERROR = 0;
-	
 	//array of current world lights
 	//total of 16 allowed
 	F3DLight[] lights = new F3DLight[16];
@@ -53,7 +50,7 @@ public class F3DWorld {
 		}
 		else
 		{
-			F3DErrorManager.throwError(REMOVE_MODEL_ERROR);
+			F3DErrorManager.throwError(F3DErrorManager.REMOVE_MODEL_ERROR);
 		}
 	}
 	
