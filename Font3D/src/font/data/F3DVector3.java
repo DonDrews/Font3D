@@ -55,5 +55,11 @@ public class F3DVector3 {
 		y = (y / length);
 		z = (z / length);
 	}
+	
+	//to string function required for OBJ loader
+	public String toString()
+	{
+		return x + "," + y + "," + z;
+	}
 
 }
