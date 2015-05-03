@@ -1,5 +1,6 @@
 package font.data;
 
+import font.material.F3DMaterial;
 import font.misc.F3DErrorManager;
 
 public class F3DModel {
@@ -9,7 +10,7 @@ public class F3DModel {
 	//in radians!
 	float rotation;
 	float scale;
-	
+	F3DMaterial material;
 	
 	//getting and setting functions
 	public int getIndex()
@@ -32,6 +33,11 @@ public class F3DModel {
 		return this.scale;
 	}
 	
+	public F3DMaterial getMaterial()
+	{
+		return this.material;
+	}
+	
 	public void setPosition(F3DVector3 p)
 	{
 		this.position = p;
@@ -52,5 +58,10 @@ public class F3DModel {
 	public void setScale(float s)
 	{
 		this.scale = s;
+	}
+	
+	public void setMaterial(F3DMaterial m)
+	{
+		this.material = m;
 	}
 }
