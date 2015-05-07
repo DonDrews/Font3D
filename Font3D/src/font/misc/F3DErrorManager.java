@@ -8,6 +8,7 @@ public class F3DErrorManager {
 	public static final int INVALID_MODEL_ROTATION_VALUE_ERROR = 2; 
 	public static final int INVALID_GRAPHICAL_SETTING_VALUE_ERROR = 3;
 	public static final int INVALID_CAMERA_VALUE_ERROR = 4;
+	public static final int REMOVE_CAMERA_ERROR = 5;
 	
 	public static void throwError(int i)
 	{

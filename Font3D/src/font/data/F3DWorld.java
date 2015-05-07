@@ -13,6 +13,9 @@ public class F3DWorld {
 	//array list of models
 	ArrayList<F3DModel> models = new ArrayList<F3DModel>();
 	
+	//array list of cameras
+	ArrayList<F3DCamera> cameras = new ArrayList<F3DCamera>();
+	
 	
 	//public constructor
 	public F3DWorld()
@@ -54,12 +57,36 @@ public class F3DWorld {
 		}
 	}
 	
-	//update all indices for models
+	public void bindCamera(F3DCamera c)
+	{
+		cameras.add(c);
+		updateIndices();
+	}
+	
+	public void removeCameraAtIndex(int i)
+	{
+		if(i < cameras.size() && i >= 0)
+		{
+			cameras.remove(i);
+			updateIndices();
+		}
+		else
+		{
+			F3DErrorManager.throwError(F3DErrorManager.REMOVE_CAMERA_ERROR);
+		}
+	}
+	
+	//update all indices for models and cameras
 	public void updateIndices()
 	{
 		for(int i = 0; i < models.size(); i++)
 		{
 			models.get(i).index = i;
+		}
+		
+		for(int i = 0; i < cameras.size(); i++)
+		{
+			cameras.get(i).index = i;
 		}
 	}
 
