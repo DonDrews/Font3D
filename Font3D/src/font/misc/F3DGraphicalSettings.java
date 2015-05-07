@@ -9,8 +9,6 @@ public class F3DGraphicalSettings {
 	public boolean hQShaders;
 	int textureFilteringLevel;
 	float renderDistance;
-	int fieldOfView;
-	public boolean calculatePerspective;
 	
 	//public default settings constructor
 	public F3DGraphicalSettings()
@@ -20,9 +18,7 @@ public class F3DGraphicalSettings {
 		this.antiAliasingLevel = 2;
 		this.hQShaders = false;
 		this.textureFilteringLevel = 2;
-		this.calculatePerspective = true;
 		this.renderDistance = 500;
-		this.fieldOfView = 90;
 	}
 	
 	
@@ -76,20 +72,6 @@ public class F3DGraphicalSettings {
 		}
 	}
 	
-	public void setFieldOfView(int f)
-	{
-		if(f < 180 && f > 0)
-		{
-			this.fieldOfView = f;
-		}
-		else
-		{
-			F3DErrorManager.throwError(F3DErrorManager.INVALID_GRAPHICAL_SETTING_VALUE_ERROR);
-		}
-	}
-	
-	
-	
 	//getting functions
 	public int getAntiAliasingLevel()
 	{
@@ -104,11 +86,6 @@ public class F3DGraphicalSettings {
 	public float getRenderDistance()
 	{
 		return this.renderDistance;
-	}
-	
-	public int getFieldOfView()
-	{
-		return this.fieldOfView;
 	}
 
 }
