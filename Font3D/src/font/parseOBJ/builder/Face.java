@@ -24,7 +24,7 @@ public class Face {
     public void add(FaceVertex vertex) {
         vertices.add(vertex);
     }
-    public VertexNormal faceNormal = new VertexNormal(0, 0, 0);
+    public F3DVector3 faceNormal = new F3DVector3(0, 0, 0);
 
     // @TODO: This code assumes the face is a triangle.  
     public void calculateTriangleNormal() {
@@ -50,9 +50,9 @@ public class Face {
         normal[1] = edge1[2] * edge2[0] - edge1[0] * edge2[2];
         normal[2] = edge1[0] * edge2[1] - edge1[1] * edge2[0];
 
-        faceNormal.x = normal[0];
-        faceNormal.y = normal[1];
-        faceNormal.z = normal[2];
+        faceNormal.setX(normal[0]);
+        faceNormal.setY(normal[1]);
+        faceNormal.setZ(normal[2]);
     }
     
     public String toString() { 

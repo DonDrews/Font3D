@@ -4,6 +4,7 @@ package font.parseOBJ.builder;
 // impossible to release software to the public domain, you are also free
 // to use this code under any version of the GPL, LPGL, Apache, or BSD
 // licenses, or contact me for use of another license.
+import font.data.F3DTexVector;
 import font.data.F3DVector3;
 import font.parseOBJ.parser.BuilderInterface;
 
@@ -14,8 +15,8 @@ public class Build implements BuilderInterface {
     public String objFilename = null;
     // these accumulate each type of vertex as they are parsed, so they can then be referenced via index.
     public ArrayList<F3DVector3> verticesG = new ArrayList<F3DVector3>();
-    public ArrayList<VertexTexture> verticesT = new ArrayList<VertexTexture>();
-    public ArrayList<VertexNormal> verticesN = new ArrayList<VertexNormal>();
+    public ArrayList<F3DTexVector> verticesT = new ArrayList<F3DTexVector>();
+    public ArrayList<F3DVector3> verticesN = new ArrayList<F3DVector3>();
     // we use this map to consolidate redundant face vertices.  Since a face is defined as a list of index 
     // triplets, each index referring to a vertex within ONE of the three arraylists verticesG,  verticesT
     // or verticesN, two faces might end up specifying the same combination.  Clearly (@TODO: really?) this 
@@ -55,12 +56,12 @@ public class Build implements BuilderInterface {
     }
 
     public void addVertexTexture(float u, float v) {
-        verticesT.add(new VertexTexture(u, v));
+        verticesT.add(new F3DTexVector(u, v));
 //        System.err.println("Added texture  vertex " + verticesT.size() + " = " + verticesT.get(verticesT.size() - 1));
     }
 
     public void addVertexNormal(float x, float y, float z) {
-        verticesN.add(new VertexNormal(x, y, z));
+        verticesN.add(new F3DVector3(x, y, z));
     }
 
     public void addPoints(int[] values) {

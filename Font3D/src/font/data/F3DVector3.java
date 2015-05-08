@@ -61,5 +61,13 @@ public class F3DVector3 {
 	{
 		return x + "," + y + "," + z;
 	}
+	
+	//add function required for OBJ loader
+	public void add(float x, float y, float z)
+	{
+		this.x += x;
+		this.y += y;
+		this.z += z;
+	}
 
 }
