@@ -9,11 +9,13 @@ public class F3DErrorManager {
 	public static final int INVALID_GRAPHICAL_SETTING_VALUE_ERROR = 3;
 	public static final int INVALID_CAMERA_VALUE_ERROR = 4;
 	public static final int REMOVE_CAMERA_ERROR = 5;
+	public static final int CANT_FIND_OBJ_ERROR = 6;
+	public static final int CANT_READ_FILESYSTEM_ERROR = 7;
 	
 	public static void throwError(int i)
 	{
 		System.err.println("Font3D has encountered the error: " + i);
-		System.exit(-1);
+		System.exit(1);
 	}
 
 }

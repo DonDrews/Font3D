@@ -1,13 +1,18 @@
 package font.data;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import font.misc.F3DErrorManager;
+import font.parseOBJ.builder.Build;
 import font.parseOBJ.builder.Face;
 import font.parseOBJ.builder.FaceVertex;
+import font.parseOBJ.parser.Parse;
 
 public class F3DMesh {
 	
@@ -21,6 +26,14 @@ public class F3DMesh {
 		this.vertices.clear();
 		this.normals.clear();
 		this.vertexIndices.clear();
+		Build builder = new Build();
+		try {
+			Parse parser = new Parse(builder, obj.getName());
+		} catch (FileNotFoundException e) {
+			F3DErrorManager.throwError(F3DErrorManager.CANT_FIND_OBJ_ERROR);
+		} catch (IOException e) {
+			F3DErrorManager.throwError(F3DErrorManager.CANT_READ_FILESYSTEM_ERROR);
+		}
 	}
 	
 	//getting functions
