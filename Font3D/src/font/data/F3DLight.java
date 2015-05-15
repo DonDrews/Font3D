@@ -1,5 +1,7 @@
 package font.data;
 
+import font.vectors.F3DVector3;
+
 
 public class F3DLight {
 	

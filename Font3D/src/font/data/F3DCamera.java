@@ -6,6 +6,7 @@ import com.jogamp.opengl.util.PMVMatrix;
 
 import font.misc.F3DErrorManager;
 import font.misc.F3DGraphicalSettings;
+import font.vectors.F3DVector3;
 
 public class F3DCamera {
 	
@@ -140,7 +141,7 @@ public class F3DCamera {
 			matrixMaker.gluPerspective(this.fieldOfView, this.perspectiveAspectRatio, 0.01f, settings.getRenderDistance());
 		}
 		//set up view matrix
-		matrixMaker.gluLookAt(this.position.x, this.position.y, this.position.z, this.lookingAtPosition.x, this.lookingAtPosition.y, this.lookingAtPosition.z, this.upPosition.x, this.upPosition.y, this.upPosition.z);
+		matrixMaker.gluLookAt(this.position.getX(), this.position.getY(), this.position.getZ(), this.lookingAtPosition.getX(), this.lookingAtPosition.getY(), this.lookingAtPosition.getZ(), this.upPosition.getX(), this.upPosition.getY(), this.upPosition.getZ());
 		
 		//move changes to current matrix
 		this.cameraMatrix = matrixMaker.glGetMatrixf();

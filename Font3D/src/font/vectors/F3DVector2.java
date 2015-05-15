@@ -1,4 +1,4 @@
-package font.data;
+package font.vectors;
 
 public class F3DVector2 {
 	

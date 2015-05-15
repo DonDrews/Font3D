@@ -13,6 +13,7 @@ import font.parseOBJ.builder.Build;
 import font.parseOBJ.builder.Face;
 import font.parseOBJ.builder.FaceVertex;
 import font.parseOBJ.parser.Parse;
+import font.vectors.F3DVector3;
 
 public class F3DMesh {
 	
@@ -26,6 +27,7 @@ public class F3DMesh {
 		this.vertices.clear();
 		this.normals.clear();
 		this.vertexIndices.clear();
+		//parse obj file
 		Build builder = new Build();
 		try {
 			Parse parser = new Parse(builder, obj.getName());
@@ -34,6 +36,8 @@ public class F3DMesh {
 		} catch (IOException e) {
 			F3DErrorManager.throwError(F3DErrorManager.CANT_READ_FILESYSTEM_ERROR);
 		}
+		//add info to buffers
+		this.build(builder.faces);
 	}
 	
 	//getting functions
@@ -58,7 +62,7 @@ public class F3DMesh {
 	// to use this code under any version of the GPL, LPGL, Apache, or BSD
 	// licenses, or contact me for use of another license.
 	
-	void build(int textureID, ArrayList<Face> triangles) {
+	void build(ArrayList<Face> triangles) {
         //	System.err.println("VBOFactory.build: building a vbo!");
 
         if (triangles.size() <= 0) {
@@ -98,9 +102,9 @@ public class F3DMesh {
             System.err.println("VBOFactory.build: ERROR Unable to allocate verticeAttributes buffer of size " + (verticeAttributesCount * 3) + " floats.");
         }
         for (FaceVertex vertex : faceVertexList) {
-            this.vertices.put(vertex.v.x);
-            this.vertices.put(vertex.v.y);
-            this.vertices.put(vertex.v.z);
+            this.vertices.put(vertex.v.getX());
+            this.vertices.put(vertex.v.getY());
+            this.vertices.put(vertex.v.getZ());
             if (vertex.n == null) {
                 // @TODO: What's a reasonable default normal?  Maybe add code later to calculate normals if not present in .obj file.
                 this.normals.put(1.0f);
@@ -108,9 +112,9 @@ public class F3DMesh {
                 this.normals.put(1.0f);
                 numMissingNormals++;
             } else {
-                this.normals.put(vertex.n.x);
-                this.normals.put(vertex.n.y);
-                this.normals.put(vertex.n.z);
+                this.normals.put(vertex.n.getX());
+                this.normals.put(vertex.n.getY());
+                this.normals.put(vertex.n.getZ());
             }
         }
         this.vertices.flip();

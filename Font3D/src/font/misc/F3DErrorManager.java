@@ -11,6 +11,7 @@ public class F3DErrorManager {
 	public static final int REMOVE_CAMERA_ERROR = 5;
 	public static final int CANT_FIND_OBJ_ERROR = 6;
 	public static final int CANT_READ_FILESYSTEM_ERROR = 7;
+	public static final int CANVAS_NO_WORLD_SET_ERROR = 8;
 	
 	public static void throwError(int i)
 	{

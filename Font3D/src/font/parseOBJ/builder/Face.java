@@ -10,7 +10,7 @@ import java.util.*;
 import java.text.*;
 import java.io.*;
 
-import font.data.F3DVector3;
+import font.vectors.F3DVector3;
 
 public class Face {
 

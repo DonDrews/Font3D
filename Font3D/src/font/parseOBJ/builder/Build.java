@@ -4,11 +4,12 @@ package font.parseOBJ.builder;
 // impossible to release software to the public domain, you are also free
 // to use this code under any version of the GPL, LPGL, Apache, or BSD
 // licenses, or contact me for use of another license.
-import font.data.F3DTexVector;
-import font.data.F3DVector3;
-import font.parseOBJ.parser.BuilderInterface;
+import java.util.ArrayList;
+import java.util.HashMap;
 
-import java.util.*;
+import font.parseOBJ.parser.BuilderInterface;
+import font.vectors.F3DTexVector;
+import font.vectors.F3DVector3;
 
 public class Build implements BuilderInterface {
 

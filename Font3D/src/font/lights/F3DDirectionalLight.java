@@ -1,7 +1,7 @@
 package font.lights;
 
 import font.data.F3DLight;
-import font.data.F3DVector3;
+import font.vectors.F3DVector3;
 
 public class F3DDirectionalLight extends F3DLight{
 	

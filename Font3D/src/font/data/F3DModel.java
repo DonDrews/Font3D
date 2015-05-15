@@ -2,6 +2,7 @@ package font.data;
 
 import font.material.F3DMaterial;
 import font.misc.F3DErrorManager;
+import font.vectors.F3DVector3;
 
 public class F3DModel {
 	
