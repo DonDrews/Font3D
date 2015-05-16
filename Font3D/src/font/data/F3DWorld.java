@@ -3,6 +3,7 @@ package font.data;
 import java.util.ArrayList;
 
 import font.misc.F3DErrorManager;
+import font.misc.F3DGraphicalSettings;
 
 public class F3DWorld {
 	
@@ -15,6 +16,9 @@ public class F3DWorld {
 	
 	//array list of cameras
 	ArrayList<F3DCamera> cameras = new ArrayList<F3DCamera>();
+	
+	//USER SHOULD NOT EDIT
+	public F3DGraphicalSettings settings;
 	
 	
 	//public constructor
@@ -59,6 +63,7 @@ public class F3DWorld {
 	
 	public void bindCamera(F3DCamera c)
 	{
+		c.settings = this.settings;
 		cameras.add(c);
 		updateIndices();
 	}

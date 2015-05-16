@@ -1,5 +1,7 @@
 package font.data;
 
+import java.nio.FloatBuffer;
+
 import font.material.F3DMaterial;
 import font.misc.F3DErrorManager;
 import font.vectors.F3DVector3;
@@ -12,6 +14,9 @@ public class F3DModel {
 	float rotation;
 	float scale;
 	F3DMaterial material;
+	
+	//matrix to be passed into shader
+	FloatBuffer matrix;
 	
 	//getting and setting functions
 	public int getIndex()

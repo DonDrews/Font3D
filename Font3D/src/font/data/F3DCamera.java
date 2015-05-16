@@ -21,6 +21,7 @@ public class F3DCamera {
 	float orthoWidth;
 	float orthoHeight;
 	float perspectiveAspectRatio;
+	//USER SHOULD NOT EDIT
 	F3DGraphicalSettings settings;
 	
 	FloatBuffer cameraMatrix;
