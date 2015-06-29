@@ -9,6 +9,7 @@ public class F3DGraphicalSettings {
 	public boolean hQShaders;
 	int textureFilteringLevel;
 	float renderDistance;
+	int maximumFPS;
 	
 	//public default settings constructor
 	public F3DGraphicalSettings()
@@ -19,6 +20,7 @@ public class F3DGraphicalSettings {
 		this.hQShaders = false;
 		this.textureFilteringLevel = 2;
 		this.renderDistance = 500;
+		this.maximumFPS = 60;
 	}
 	
 	
@@ -72,6 +74,18 @@ public class F3DGraphicalSettings {
 		}
 	}
 	
+	public void setMaxFPS(int x)
+	{
+		if(x > 0)
+		{
+			this.maximumFPS = x;
+		}
+		else
+		{
+			F3DErrorManager.throwError(F3DErrorManager.INVALID_GRAPHICAL_SETTING_VALUE_ERROR);
+		}
+	}
+	
 	//getting functions
 	public int getAntiAliasingLevel()
 	{
@@ -86,6 +100,11 @@ public class F3DGraphicalSettings {
 	public float getRenderDistance()
 	{
 		return this.renderDistance;
+	}
+	
+	public int getMaxFPS()
+	{
+		return this.maximumFPS;
 	}
 
 }

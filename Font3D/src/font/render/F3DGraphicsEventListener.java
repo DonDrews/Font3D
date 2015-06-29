@@ -6,7 +6,7 @@ import com.jogamp.opengl.GLEventListener;
 
 import font.misc.F3DGraphicalSettings;
 
-public class F3DGraphicsEventListener implements GLEventListener{
+class F3DGraphicsEventListener implements GLEventListener{
 	
 	F3DGraphicalSettings settings;
 
