@@ -9,6 +9,11 @@ import font.misc.F3DGraphicalSettings;
 class F3DGraphicsEventListener implements GLEventListener{
 	
 	F3DGraphicalSettings settings;
+	
+	public F3DGraphicsEventListener(F3DGraphicalSettings s)
+	{
+		this.settings = s;
+	}
 
 	@Override
 	public void display(GLAutoDrawable arg0)
