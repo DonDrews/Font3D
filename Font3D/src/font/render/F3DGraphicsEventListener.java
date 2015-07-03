@@ -10,6 +10,13 @@ class F3DGraphicsEventListener implements GLEventListener{
 	
 	F3DGraphicalSettings settings;
 	
+	//GL object arrays
+	int vertexArrays[];
+	int framebuffers[];
+	int renderbuffers[];
+	//for use with framebuffers
+	int glTextures[];
+	
 	public F3DGraphicsEventListener(F3DGraphicalSettings s)
 	{
 		this.settings = s;
@@ -36,6 +43,7 @@ class F3DGraphicsEventListener implements GLEventListener{
 		{
 			gl.setSwapInterval(1);
 		}
+		
 	}
 
 	@Override
