@@ -9,8 +9,7 @@ import font.misc.F3DGraphicalSettings;
 class F3DGraphicsEventListener implements GLEventListener{
 	
 	private F3DGraphicalSettings settings;
-	private int canvasX;
-	private int canvasY;
+	private F3DCanvas canvas;
 	
 	//GL object arrays
 	private int vertexArrays[];
@@ -19,9 +18,10 @@ class F3DGraphicsEventListener implements GLEventListener{
 	//for use with framebuffers
 	private int glTextures[];
 	
-	public F3DGraphicsEventListener(F3DGraphicalSettings s, int x, int y)
+	public F3DGraphicsEventListener(F3DGraphicalSettings s, F3DCanvas c)
 	{
 		this.settings = s;
+		this.canvas = c;
 	}
 
 	@Override
@@ -61,16 +61,18 @@ class F3DGraphicsEventListener implements GLEventListener{
 			
 			gl.glGenTextures(1, glTextures, 0);
 			gl.glBindTexture(GL3.GL_TEXTURE_2D_MULTISAMPLE, glTextures[0]);
-			gl.glTexImage2DMultisample(GL3.GL_TEXTURE_2D_MULTISAMPLE, settings.getAntiAliasingLevel(), GL3.GL_RGBA8, canvasX, canvasY, true);
+			gl.glTexImage2DMultisample(GL3.GL_TEXTURE_2D_MULTISAMPLE, settings.getAntiAliasingLevel(), GL3.GL_RGBA8, canvas.getWidth(), canvas.getHeight(), true);
 			
 			gl.glGenFramebuffers(1, framebuffers, 0);
 			gl.glBindFramebuffer(GL3.GL_FRAMEBUFFER, framebuffers[0]);
 			gl.glFramebufferTexture2D(GL3.GL_FRAMEBUFFER, GL3.GL_COLOR_ATTACHMENT0, GL3.GL_TEXTURE_2D_MULTISAMPLE, glTextures[0], 0);
-		}
-		else
-		{
 			
+			gl.glGenRenderbuffers(1, renderbuffers, 0);
+		    gl.glBindRenderbuffer(GL3.GL_RENDERBUFFER, renderbuffers[0]);
+		    gl.glRenderbufferStorageMultisample(GL3.GL_RENDERBUFFER, settings.getAntiAliasingLevel(), GL3.GL_DEPTH24_STENCIL8, canvas.getWidth(), canvas.getHeight());
 		}
+		
+		
 	}
 
 	@Override
