@@ -37,7 +37,7 @@ public class F3DCanvas extends GLCanvas{
 		this.animator = new FPSAnimator(this.settings.getMaxFPS());
 		animator.add(this);
 		
-		this.listen = new F3DGraphicsEventListener(this.settings);
+		this.listen = new F3DGraphicsEventListener(this.settings, w, h);
 		this.addGLEventListener(this.listen);
 	}
 	
